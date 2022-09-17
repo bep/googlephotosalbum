@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>{{ .Title }}</title>
+    <script src="https://apis.google.com/js/api.js" onload="gapi.load('client')"></script>
+    <script src="https://accounts.google.com/gsi/client"></script>
+    {{ $js := resources.Get "js/googlephotosalbum/cdn/index.js" }}
+    {{ $js = $js | js.Build (dict "params" site.Params.googlephotosalbum) }}    <script src="{{ $js.RelPermalink }}"></script>
+
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: black;
+      }
+      .grid {
+        width: 100%;
+        display: grid;
+        grid-gap: 0;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
+    
+    </style>
+  </head>
+  <body class="grid">
+      {{ range seq 80 }}
+      <div class="card">
+        <img src="https://picsum.photos/600/300?random={{ . }}" />
+      </div>
+      {{ end }}
+    
+    <script>
+        window.GooglePhotosAlbum.init()
+    </script>
+  </body>
+</html>

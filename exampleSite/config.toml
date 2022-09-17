@@ -1,0 +1,16 @@
+title        = "Google Photos Album"
+disableKinds = ["page", "section", "taxonomy", "term"]
+
+[server]
+    [[server.headers]]
+        for = '/**'
+        [server.headers.values]
+            Referrer-Policy = 'strict-origin-when-cross-origin'
+
+[params]
+    [params.googlephotosalbum]
+
+[module]
+    [module.hugoVersion]
+    [[module.imports]]
+        path = "github.com/bep/googlephotosalbum"
