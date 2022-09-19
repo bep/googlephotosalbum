@@ -1,1 +1,3 @@
 I have currently paused this project, until I find a way to do this with Google Photo's API without having the end user "Google authenticated" (e.g. by using an API key). If you have any working solition, let me know in https://github.com/bep/googlephotosalbum/issues/1.
+
+See https://github.com/bep/gallerydeluxe for something similar...
